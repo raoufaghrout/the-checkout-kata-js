@@ -13,12 +13,12 @@ function total() {
 }
 
 function _applyDiscounts(price) {
-    for (const [key, value] of Object.entries(this.offers)) {
-        const numberOfItem = this.basket.filter(item => item === key).length;
-        const numberOfDiscounts = Math.floor(numberOfItem / value.quantity);
+    this.offers.map(offer => {
+        const numberOfItem = this.basket.filter(item => item === offer.name).length;
+        const numberOfDiscounts = Math.floor(numberOfItem / offer.quantity);
 
-        price -= value.amount * numberOfDiscounts;
-    }
+        price -= offer.amount * numberOfDiscounts;
+    });
 
     return price;
 }

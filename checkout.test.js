@@ -7,16 +7,18 @@ const priceList = {
     'Drink': 15
 };
 
-const offers = {
-    'Apple': {
+const offers = [
+    {
+        'name': 'Apple',
         'quantity': 3,
         'amount': 20
     },
-    'Banana': {
+    {
+        'name': 'Banana',
         'quantity': 2,
         'amount': 15
     }
-};
+];
 
 test('should price an apple', () => {
     const checkout = Checkout(priceList, offers);
