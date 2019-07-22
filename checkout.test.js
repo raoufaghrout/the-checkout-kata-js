@@ -19,7 +19,7 @@ const offers = {
 };
 
 test('should price an apple', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     checkout.scan('Apple');
 
@@ -27,7 +27,7 @@ test('should price an apple', () => {
 });
 
 test('should price two apples', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
 
     checkout.scan('Apple');
@@ -37,7 +37,7 @@ test('should price two apples', () => {
 });
 
 test('should price all items', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     checkout.scan('Apple');
     checkout.scan('Banana');
@@ -48,21 +48,19 @@ test('should price all items', () => {
 });
 
 test('should throw exception and not price an unknown item', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     expect(() => checkout.scan('Unknown')).toThrow('Unknown item!');
-    expect(checkout.total()).toBe(0);
 });
 
 test('should throw exception and not price a different unknown item', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     expect(() => checkout.scan('Unknown Item')).toThrow('Unknown item!');
-    expect(checkout.total()).toBe(0);
 });
 
 test('should price and discount 3 apples once', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     checkout.scan('Apple');
     checkout.scan('Apple');
@@ -72,7 +70,7 @@ test('should price and discount 3 apples once', () => {
 });
 
 test('should price and discount 6 apples twice', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     checkout.scan('Apple');
     checkout.scan('Apple');
@@ -85,7 +83,7 @@ test('should price and discount 6 apples twice', () => {
 });
 
 test('should price and discount 5 apples once', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     checkout.scan('Apple');
     checkout.scan('Apple');
@@ -97,7 +95,7 @@ test('should price and discount 5 apples once', () => {
 });
 
 test('should price and discount 2 bananas once', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     checkout.scan('Banana');
     checkout.scan('Banana');
@@ -106,7 +104,7 @@ test('should price and discount 2 bananas once', () => {
 });
 
 test('should price and discount 4 bananas twice', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     checkout.scan('Banana');
     checkout.scan('Banana');
@@ -117,7 +115,7 @@ test('should price and discount 4 bananas twice', () => {
 });
 
 test('should price and discount 3 bananas once', () => {
-    let checkout = new Checkout(priceList, offers);
+    const checkout = Checkout(priceList, offers);
 
     checkout.scan('Banana');
     checkout.scan('Banana');
